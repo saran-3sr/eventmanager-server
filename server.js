@@ -68,7 +68,9 @@ app.post('/api/booking',async(req,res)=>{
                 lastName:req.body.lastName,
                 address:req.body.address,
                 mobile:req.body.mobile,
-                bookedDate:req.body.bookedDate
+                bookedDate:req.body.bookedDate,
+                alternateMobile:req.body.alternateMobile||"",
+                eventType:req.body.eventType
             }
         )
         res.json({status:true,booked:true})

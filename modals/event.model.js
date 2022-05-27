@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-const Event=new mongoose.schema(
+const Event=new mongoose.Schema(
     {
         userName:{type:String,required:true},
         firstName:{type:String,required:true},
@@ -9,7 +9,7 @@ const Event=new mongoose.schema(
         mobile:{type:Number,required:true},
         alternateMobile:{type:Number},
         bookedDate:{type:Date,required:true},
-
+        eventType:{type:Number,required:true}
     },
     {collection:'Event Booking'}
 )
