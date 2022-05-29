@@ -36,6 +36,15 @@ app.post('/api/register', async(req,res)=>{
     }
 })
 
+app.get('/api/adminBook',async(req,res)=>{
+    const bookOpen=await EventsBooked.find()
+    if(bookOpen)
+    {
+        res.json(bookOpen)
+    }
+    console.log(bookOpen)
+})
+
 app.post('/api/login', async(req,res)=>{
     console.log(req.body)
         const user=await User.find(
@@ -63,20 +72,22 @@ app.post('/api/booking',async(req,res)=>{
     try{
         const event=await EventsBooked.create(
             {
-                userName:req.body.userName,
                 firstName:req.body.firstName,
                 lastName:req.body.lastName,
                 address:req.body.address,
                 mobile:req.body.mobile,
                 bookedDate:req.body.bookedDate,
                 alternateMobile:req.body.alternateMobile||"",
-                eventType:req.body.eventType
+                eventType:req.body.eventType,
+                openBook:"true"
             }
+
         )
         res.json({status:true,booked:true})
+        console.log("success booking retrieved")
     }
     catch(error){
-        console.log("Error in Booking")
+        console.log("Error in retrive open book",error)
         res.json({status:false,booked:false})
     }
 })
