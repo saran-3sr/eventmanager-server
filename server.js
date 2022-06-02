@@ -79,7 +79,8 @@ app.post('/api/booking',async(req,res)=>{
                 bookedDate:req.body.bookedDate,
                 alternateMobile:req.body.alternateMobile||"",
                 eventType:req.body.eventType,
-                openBook:"true"
+                openBook:"true",
+                eventDesc:req.body.eventDesc
             }
 
         )
